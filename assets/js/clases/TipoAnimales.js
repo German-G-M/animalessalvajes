@@ -49,7 +49,9 @@ class Aguila extends Animales{
           console.log("El aguila Chilla")
     }
 }
-
 //probamos que funcione
-const L1=new Aguila("Aguila","0-5","aguila.png","ningun comentario",".....")
+const L1=new Aguila("Aguila","0-5","aguila.png","ningun comentario","sonido de aguila")
 console.log(L1)
+
+//exportamos las subclases dentro de un objeto (esto se va a un index.js)
+export {Leon,Lobo,Oso,Serpiente,Aguila}

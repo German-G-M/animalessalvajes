@@ -14,8 +14,15 @@ seleccion.addEventListener('change', async (evento) => {
     //ahora que tengo el nombre seleccionado, busco la imagen en el objeto y lo muestro en el div "preview"
     const imagenSeleccionada=animales.find(p=>p.name==a)
     console.log(imagenSeleccionada)//me trae el objeto seleccionado
-    console.log(imagenSeleccionada.imagen)//me trae el objeto seleccionado
-    document.getElementById("preview").innerHTML=`<img width=100% height=100% src="./assets/imgs/${imagenSeleccionada.imagen}"/>`
+    //console.log(imagenSeleccionada.imagen)//me trae la url de la imagen
+
+    /*
+    const imagenSrc=preview.target.src;//de cada imagen nos centramos en el atributo "scr"
+    console.log(imagenSrc)
+    */
+    preview.style.backgroundImage=`url(./assets/imgs/${imagenSeleccionada.imagen})`
+    
+    //document.getElementById("preview").innerHTML=`<img width=100% height=100% src="./assets/imgs/${imagenSeleccionada.imagen}"/>`
 })
 
 
