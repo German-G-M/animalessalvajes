@@ -16,8 +16,6 @@ seleccion.addEventListener('change', async (evento) => {
     console.log(imagenSeleccionada)//me trae el objeto seleccionado
     console.log(imagenSeleccionada.imagen)//me trae el objeto seleccionado
     document.getElementById("preview").innerHTML=`<img width=100% height=100% src="./assets/imgs/${imagenSeleccionada.imagen}"/>`
-
-
 })
 
 
