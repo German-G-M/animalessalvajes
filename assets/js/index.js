@@ -26,27 +26,54 @@ btnRegistrar.addEventListener("click", async () => {
     console.log("url de la imagen")
     console.log("url-->" + imgSrc)//ahora  me esta mostrando la url
 
-    //traemos el objeto seleccionado para acceder al sonido
+    //si los datos estan completos procedemos a traer el sonido,instanciamos los objetos y hacemos el push
+    if (nombreAnimal&& edadAnimal&& comentariosAnimal && imgSrc) {
+        
+        //traemos el objeto seleccionado para acceder al sonido
+        const { animales } = await Animales.getData()
+        console.log(animales)
+        const imagenSeleccionada = animales.find(p => p.name == nombreAnimal)
+        console.log(imagenSeleccionada)//me trae el objeto seleccionado
+        console.log(imagenSeleccionada.sonido)
+        const son = imagenSeleccionada.sonido
 
-    const { animales } = await Animales.getData()
-    console.log(animales)
-    const imagenSeleccionada = animales.find(p => p.name == nombreAnimal)
-    console.log(imagenSeleccionada)//me trae el objeto seleccionado
-    console.log(imagenSeleccionada.sonido)
-    const son=imagenSeleccionada.sonido
-    
-    //creamos las instancias para el registro dependiendo del tipo de animal
-    let nuevoAnimalRegistrado
-    //usamos un case
-    switch (nombreAnimal) {
-        case "Leon": nuevoAnimalRegistrado = new Leon(nombreAnimal, edadAnimal, imgSrc, comentariosAnimal, son); break;
-        case "Lobo": nuevoAnimalRegistrado = new Lobo(nombreAnimal, edadAnimal, imgSrc, comentariosAnimal, son); break;
-        case "Oso": nuevoAnimalRegistrado = new Oso(nombreAnimal, edadAnimal, imgSrc, comentariosAnimal, son); break;
-        case "Serpiente": nuevoAnimalRegistrado = new Serpiente(nombreAnimal, edadAnimal, imgSrc, comentariosAnimal, son); break;
-        case "Aguila": nuevoAnimalRegistrado = new Aguila(nombreAnimal, edadAnimal, imgSrc, comentariosAnimal, son); break;
+        //creamos las instancias para el registro dependiendo del tipo de animal
+        let nuevoAnimalRegistrado
+        //usamos un case
+        switch (nombreAnimal) {
+            case "Leon": nuevoAnimalRegistrado = new Leon(nombreAnimal, edadAnimal, imgSrc, comentariosAnimal, son); break;
+            case "Lobo": nuevoAnimalRegistrado = new Lobo(nombreAnimal, edadAnimal, imgSrc, comentariosAnimal, son); break;
+            case "Oso": nuevoAnimalRegistrado = new Oso(nombreAnimal, edadAnimal, imgSrc, comentariosAnimal, son); break;
+            case "Serpiente": nuevoAnimalRegistrado = new Serpiente(nombreAnimal, edadAnimal, imgSrc, comentariosAnimal, son); break;
+            case "Aguila": nuevoAnimalRegistrado = new Aguila(nombreAnimal, edadAnimal, imgSrc, comentariosAnimal, son); break;
+        }
+        //el nuevo registro lo añadimos a nuestro array animalesRegistrados
+        animalesRegistrados.push(nuevoAnimalRegistrado);
+        console.log(animalesRegistrados)
+
+        reloadTable()
     }
-    //el nuevo registro lo añadimos a nuestro array animalesRegistrados
-    animalesRegistrados.push(nuevoAnimalRegistrado);
-    console.log(animalesRegistrados)
-
+    else {
+        alert("faltan datos por llenar")
+    }
 })
+
+
+//mostramos la tabla de todos los animales registrados
+const reloadTable=()=>{
+    const animalesRegistradosTemplate=document.getElementById("Animales")//id en html
+    animalesRegistradosTemplate.innerHTML=""//limpiamos cada vez que agregamos un registro
+    animalesRegistrados.forEach((elemento,indice)=>{
+        //por cada registro vamos a concatenar a participantes template
+        animalesRegistradosTemplate.innerHTML+=`
+        <div class="px-2 pb-2 Tabla" data-fighter="${elemento.getNombre()}">
+            <div class="card" style="width: 10rem;">
+            <img src="${elemento.getImagen()}" class="card-img-top" alt="..."  height="150">
+            <div class="card-body ">
+                <a href="#" class="btn btn-primary">play</a>
+            </div>
+            </div>
+        </div>
+        `;
+    })
+}
