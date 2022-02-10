@@ -20,9 +20,15 @@ seleccion.addEventListener('change', async (evento) => {
     const imagenSrc=preview.target.src;//de cada imagen nos centramos en el atributo "scr"
     console.log(imagenSrc)
     */
-    preview.style.backgroundImage=`url(./assets/imgs/${imagenSeleccionada.imagen})`
-    
-    //document.getElementById("preview").innerHTML=`<img width=100% height=100% src="./assets/imgs/${imagenSeleccionada.imagen}"/>`
+   /*
+   document.getElementById("preview").innerHTML=`<img width=100% height=100% src="./assets/imgs/${imagenSeleccionada.imagen}"/>`
+   const elemento= document.querySelector("#preview img")//rescatamos el "src" de la imagen
+   console.log("query: "+elemento)
+   const imagenSrc= elemento.target.src//rescatamos el "src" de la imagen
+   console.log("src de la imagen-->"+imagenSrc)
+*/
+   
+   preview.style.backgroundImage=`url(./assets/imgs/${imagenSeleccionada.imagen})`//añado la url a mi backgroundImage
 })
 
 

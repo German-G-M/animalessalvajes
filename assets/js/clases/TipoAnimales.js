@@ -10,6 +10,7 @@ class Leon extends Animales{
     //metodos
     Rugir(){
         console.log("el leon ruge")
+        alert("el leon ruge")
 
     }
 }
@@ -20,6 +21,7 @@ class Lobo extends Animales{
     //metodos
     Aullar(){
           console.log("el lobo aulla")
+          alert("el lobo aulla")
     }
 }
 class Oso extends Animales{
@@ -29,6 +31,7 @@ class Oso extends Animales{
     //metodos
     Gruñir(){
           console.log("el oso Gruñe")
+          alert("el oso Gruñe")
     }
 }
 class Serpiente extends Animales{
@@ -38,6 +41,7 @@ class Serpiente extends Animales{
     //metodos
     Sisear(){
           console.log("la serpiente sisea")
+          alert("la serpiente sisea")
     }
 }
 class Aguila extends Animales{
@@ -47,6 +51,7 @@ class Aguila extends Animales{
     //metodos
     Chillar(){
           console.log("El aguila Chilla")
+          alert("El aguila Chilla")
     }
 }
 //probamos que funcione
