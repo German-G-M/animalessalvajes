@@ -74,13 +74,15 @@ const reloadTable = () => {
         animalesRegistradosTemplate.innerHTML += `
         <div class="px-2 pb-2 Tabla" data-fighter="${elemento.getNombre()}">
             <div class="card" style="width: 10rem;">
-            <img src="${elemento.getImagen()}" class="card-img-top" alt="..."  height="150" onclick="mostrarDatos('${elemento.getNombre()}')">
+            <img src="${elemento.getImagen()}" class="card-img-top" alt="..."  height="150" data-toggle="modal" data-target="#exampleModal" onclick="mostrarDatos('${elemento.getNombre()}')" >
             <div class="card bg-secondary" style="height: 2rem;">
                 <img src="./assets/imgs/audio.svg" height="30" width="150" onclick="playSonido('${elemento.getNombre()}')">
             </div>
             </div>
         </div>
         `;
+        //mostrarDatos(elemento.getNombre())
+
     })
 }
 
@@ -103,4 +105,16 @@ window.mostrarDatos=(nombreAnimal)=>{
     console.log(animal.getNombre());
     console.log(animal.getEdad());
     console.log(animal.getComentario());
+    let modal=document.getElementById("datoAnimal")
+    modal.innerHTML=`
+                <div class="card border-0" >
+            <img src="${animal.getImagen()}" class="card-img-top" alt="...">
+            <div class="card-body bg-dark text-center text-light">
+                <p>${animal.getNombre()}</p>
+                <p>${animal.getEdad()}</p>
+                <p><b>Comentarios</b></p>
+                <p class="card-text">${animal.getComentario()}</p>
+            </div>
+            </div>
+    `
 }
