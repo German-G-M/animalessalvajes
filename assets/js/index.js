@@ -27,8 +27,8 @@ btnRegistrar.addEventListener("click", async () => {
     console.log("url-->" + imgSrc)//ahora  me esta mostrando la url
 
     //si los datos estan completos procedemos a traer el sonido,instanciamos los objetos y hacemos el push
-    if (nombreAnimal&& edadAnimal&& comentariosAnimal && imgSrc) {
-        
+    if (nombreAnimal && edadAnimal && comentariosAnimal && imgSrc) {
+
         //traemos el objeto seleccionado para acceder al sonido
         const { animales } = await Animales.getData()
         console.log(animales)
@@ -60,20 +60,32 @@ btnRegistrar.addEventListener("click", async () => {
 
 
 //mostramos la tabla de todos los animales registrados
-const reloadTable=()=>{
-    const animalesRegistradosTemplate=document.getElementById("Animales")//id en html
-    animalesRegistradosTemplate.innerHTML=""//limpiamos cada vez que agregamos un registro
-    animalesRegistrados.forEach((elemento,indice)=>{
+const reloadTable = () => {
+    const animalesRegistradosTemplate = document.getElementById("Animales")//id en html
+    animalesRegistradosTemplate.innerHTML = ""//limpiamos cada vez que agregamos un registro
+    animalesRegistrados.forEach((elemento, indice) => {
         //por cada registro vamos a concatenar a participantes template
-        animalesRegistradosTemplate.innerHTML+=`
+        animalesRegistradosTemplate.innerHTML += `
         <div class="px-2 pb-2 Tabla" data-fighter="${elemento.getNombre()}">
             <div class="card" style="width: 10rem;">
             <img src="${elemento.getImagen()}" class="card-img-top" alt="..."  height="150">
-            <div class="card-body ">
-                <a href="#" class="btn btn-primary">play</a>
+            <div class="card bg-secondary" style="height: 2rem;">
+                <img src="./assets/imgs/audio.svg" height="30" width="150" onclick="playSonido('${elemento.getNombre()}')">
             </div>
             </div>
         </div>
         `;
     })
+}
+
+window.playSonido = (nombreAnimal) => {
+    //encontramos nuestro animal
+    const animal = animalesRegistrados.find((aa) => aa.getNombre() == nombreAnimal);
+    console.log(animal);
+    //comparamos el nombre del animal y llamamos al metodo donde emiten sonido
+    nombreAnimal == "Leon" ? animal.Rugir():
+    nombreAnimal == "Lobo" ? animal.Aullar():
+    nombreAnimal == "Oso" ? animal.Gruñir():
+    nombreAnimal == "Serpiente" ? animal.Sisear():
+    nombreAnimal == "Aguila" ? animal.Chillar():undefined;
 }

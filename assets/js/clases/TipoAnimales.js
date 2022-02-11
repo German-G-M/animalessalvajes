@@ -1,6 +1,6 @@
 //importamos la clase "Animales"
 import Animales from "./Animals.js";
-
+const audioPlayer=document.getElementById("player");//obtenemos la etiqueta <audio> del html
 //creamos las subclases: Leon,Lobo,Oso,Serpiente,Aguila
 
 class Leon extends Animales{
@@ -8,10 +8,10 @@ class Leon extends Animales{
         super(nombre,edad,imagen,comentarios,sonido)//activamos el metodo super para heredar los atributos
     }
     //metodos
-    Rugir(){
-        console.log("el leon ruge")
-        alert("el leon ruge")
-
+    Rugir(){//para llamar al sonido
+        //console.log(this.getSonido());
+        audioPlayer.src=`./assets/sounds/${this.getSonido()}`;//en <udio> ponemos un "src"
+        audioPlayer.play();//ejecutamos el metodo propio play()
     }
 }
 class Lobo extends Animales{
@@ -20,8 +20,9 @@ class Lobo extends Animales{
     }
     //metodos
     Aullar(){
-          console.log("el lobo aulla")
-          alert("el lobo aulla")
+          //console.log("el lobo aulla");alert("el lobo aulla")
+          audioPlayer.src=`./assets/sounds/${this.getSonido()}`
+          audioPlayer.play()
     }
 }
 class Oso extends Animales{
@@ -30,8 +31,8 @@ class Oso extends Animales{
     }
     //metodos
     Gruñir(){
-          console.log("el oso Gruñe")
-          alert("el oso Gruñe")
+        audioPlayer.src=`./assets/sounds/${this.getSonido()}`
+        audioPlayer.play()
     }
 }
 class Serpiente extends Animales{
@@ -40,8 +41,8 @@ class Serpiente extends Animales{
     }
     //metodos
     Sisear(){
-          console.log("la serpiente sisea")
-          alert("la serpiente sisea")
+        audioPlayer.src=`./assets/sounds/${this.getSonido()}`
+        audioPlayer.play()
     }
 }
 class Aguila extends Animales{
@@ -50,8 +51,8 @@ class Aguila extends Animales{
     }
     //metodos
     Chillar(){
-          console.log("El aguila Chilla")
-          alert("El aguila Chilla")
+        audioPlayer.src=`./assets/sounds/${this.getSonido()}`
+        audioPlayer.play()
     }
 }
 //probamos que funcione
