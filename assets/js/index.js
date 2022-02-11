@@ -51,6 +51,12 @@ btnRegistrar.addEventListener("click", async () => {
         animalesRegistrados.push(nuevoAnimalRegistrado);
         console.log(animalesRegistrados)
 
+        //aqui limpiamos nuestro formulario
+        animal.selectedIndex=0//usamos el id de html
+        edad.selectedIndex=0//usamos el id de html
+        previewElement.style.backgroundImage='url(./assets/imgs/lion.svg)'
+        comentarios.value=""//usamos el id del html
+        //imagenSrcBg=previewElement.style.backgroundColor="#f0f0f0"
         reloadTable()
     }
     else {
@@ -77,6 +83,7 @@ const reloadTable = () => {
         `;
     })
 }
+
 
 window.playSonido = (nombreAnimal) => {
     //encontramos nuestro animal
