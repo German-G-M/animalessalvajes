@@ -27,7 +27,7 @@ btnRegistrar.addEventListener("click", async () => {
     console.log("url-->" + imgSrc)//ahora  me esta mostrando la url
 
     //si los datos estan completos procedemos a traer el sonido,instanciamos los objetos y hacemos el push
-    if (nombreAnimal && edadAnimal && comentariosAnimal && imgSrc) {
+    if (nombreAnimal!="Seleccione un animal" && edadAnimal!="Seleccione un rango de años" && comentariosAnimal!="" && imgSrc) {
 
         //traemos el objeto seleccionado para acceder al sonido
         const { animales } = await Animales.getData()
@@ -74,7 +74,7 @@ const reloadTable = () => {
         animalesRegistradosTemplate.innerHTML += `
         <div class="px-2 pb-2 Tabla" data-fighter="${elemento.getNombre()}">
             <div class="card" style="width: 10rem;">
-            <img src="${elemento.getImagen()}" class="card-img-top" alt="..."  height="150">
+            <img src="${elemento.getImagen()}" class="card-img-top" alt="..."  height="150" onclick="mostrarDatos('${elemento.getNombre()}')">
             <div class="card bg-secondary" style="height: 2rem;">
                 <img src="./assets/imgs/audio.svg" height="30" width="150" onclick="playSonido('${elemento.getNombre()}')">
             </div>
@@ -95,4 +95,12 @@ window.playSonido = (nombreAnimal) => {
     nombreAnimal == "Oso" ? animal.Gruñir():
     nombreAnimal == "Serpiente" ? animal.Sisear():
     nombreAnimal == "Aguila" ? animal.Chillar():undefined;
+}
+
+window.mostrarDatos=(nombreAnimal)=>{
+    //encontrasmos nuestro animal
+    const animal = animalesRegistrados.find((aa) => aa.getNombre() == nombreAnimal);
+    console.log(animal.getNombre());
+    console.log(animal.getEdad());
+    console.log(animal.getComentario());
 }
