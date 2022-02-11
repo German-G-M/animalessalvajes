@@ -6,29 +6,17 @@ import Animales from "./consulta.js";
 //escuchamos la opción select para mostrar la imagen del animal
 let seleccion = document.getElementById("animal") //rescatamos el elemento select animal seleccionado
 seleccion.addEventListener('change', async (evento) => {
-    const a=evento.target.value//rescatamos el animal seleccionado
+    const a = evento.target.value//rescatamos el animal seleccionado
     //console.log(a)
-    const {animales}=await Animales.getData()
+    const { animales } = await Animales.getData()
     //console.log(animales)
 
     //ahora que tengo el nombre seleccionado, busco la imagen en el objeto y lo muestro en el div "preview"
-    const imagenSeleccionada=animales.find(p=>p.name==a)
-    console.log(imagenSeleccionada)//me trae el objeto seleccionado
+    const imagenSeleccionada = animales.find(p => p.name == a)
+    //console.log(imagenSeleccionada)//me trae el objeto seleccionado
     //console.log(imagenSeleccionada.imagen)//me trae la url de la imagen
 
-    /*
-    const imagenSrc=preview.target.src;//de cada imagen nos centramos en el atributo "scr"
-    console.log(imagenSrc)
-    */
-   /*
-   document.getElementById("preview").innerHTML=`<img width=100% height=100% src="./assets/imgs/${imagenSeleccionada.imagen}"/>`
-   const elemento= document.querySelector("#preview img")//rescatamos el "src" de la imagen
-   console.log("query: "+elemento)
-   const imagenSrc= elemento.target.src//rescatamos el "src" de la imagen
-   console.log("src de la imagen-->"+imagenSrc)
-*/
-   
-   preview.style.backgroundImage=`url(./assets/imgs/${imagenSeleccionada.imagen})`//añado la url a mi backgroundImage
+    preview.style.backgroundImage = `url(./assets/imgs/${imagenSeleccionada.imagen})`//añado la url a mi backgroundImage
 })
 
 

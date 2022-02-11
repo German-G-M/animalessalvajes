@@ -35,9 +35,11 @@ class Animales{
         return this.getSonido()
     }
 }
+/*
 //probamos que funcione
 const A1=new Animales("gaviota","0-5","img.png","ningun comentario","sonido gaviota")
 console.log(A1)
+*/
 
 //exportamos la clase Animales (se ira al archivo donde estarán las 5 subclases)
 export default Animales

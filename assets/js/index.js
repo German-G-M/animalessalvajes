@@ -11,20 +11,20 @@ btnRegistrar.addEventListener("click", async () => {
     let edadAnimal = edad.value//
     let comentariosAnimal = comentarios.value//
     let previewElement = preview//obtenemos el elemento con id "preview" donde están las imagenes
-    console.log("preview elemet")
-    console.log(previewElement)//me trae el "div" 
+    // console.log("preview elemet")
+    // console.log(previewElement)//me trae el "div" 
 
     let imagenSrcBg = previewElement.style.backgroundImage //obtenemos el background de la imagen
-    console.log("background de la imagen")
-    console.log(imagenSrcBg)//
+    // console.log("background de la imagen")
+    // console.log(imagenSrcBg)//
 
     let imgSrc = imagenSrcBg.slice(5, imagenSrcBg.length - 2) //???no se que hace esto(solo se que me trae la url de la imagen)
-    console.log(nombreAnimal)
-    console.log(edadAnimal)
-    console.log(comentariosAnimal)
+    // console.log(nombreAnimal)
+    // console.log(edadAnimal)
+    // console.log(comentariosAnimal)
 
-    console.log("url de la imagen")
-    console.log("url-->" + imgSrc)//ahora  me esta mostrando la url
+    // console.log("url de la imagen")
+    // console.log("url-->" + imgSrc)//ahora  me esta mostrando la url
 
     //si los datos estan completos procedemos a traer el sonido,instanciamos los objetos y hacemos el push
     if (nombreAnimal!="Seleccione un animal" && edadAnimal!="Seleccione un rango de años" && comentariosAnimal!="" && imgSrc) {
@@ -102,9 +102,9 @@ window.playSonido = (nombreAnimal) => {
 window.mostrarDatos=(nombreAnimal)=>{
     //encontrasmos nuestro animal
     const animal = animalesRegistrados.find((aa) => aa.getNombre() == nombreAnimal);
-    console.log(animal.getNombre());
-    console.log(animal.getEdad());
-    console.log(animal.getComentario());
+    // console.log(animal.getNombre());
+    // console.log(animal.getEdad());
+    // console.log(animal.getComentario());
     let modal=document.getElementById("datoAnimal")
     modal.innerHTML=`
                 <div class="card border-0" >
