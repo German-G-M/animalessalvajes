@@ -4,7 +4,7 @@
 import Animales from "./consulta.js";
 
 //escuchamos la opción select para mostrar la imagen del animal
-let seleccion = document.getElementById("animal") //rescatamos el elemento select animal seleccionado
+let seleccion = document.getElementById("animal") //rescatamos el elemento <select> animal seleccionado
 seleccion.addEventListener('change', async (evento) => {
     const a = evento.target.value//rescatamos el animal seleccionado
     //console.log(a)
